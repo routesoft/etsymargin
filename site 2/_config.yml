@@ -1,0 +1,66 @@
+title: EtsyMargin
+tagline: Know your real Etsy profit before you price it
+description: >-
+  Free Etsy profit and fee calculator for US, UK, Canada, Australia and EU sellers.
+  Work out listing fees, transaction fees, payment processing and offsite ads costs,
+  then see your real net profit and margin per sale.
+url: "https://etsymargin.com"
+baseurl: ""
+lang: en_US
+locale: en_US
+logo: /assets/images/logo.svg
+image: /assets/images/og-default.png
+author:
+  name: EtsyMargin
+twitter:
+  username: etsymargin
+  card: summary_large_image
+social:
+  name: EtsyMargin
+  links:
+    - https://etsymargin.com
+
+# --- Collections & permalinks ---
+permalink: /blog/:title/
+
+# --- Build settings ---
+markdown: kramdown
+future: true
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: true
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+feed:
+  path: /feed.xml
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      seo_type: "BlogPosting"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+
+# GitHub Pages builds this automatically on every push to main.
+# No local build step is required to deploy.

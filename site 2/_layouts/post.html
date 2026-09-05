@@ -1,0 +1,58 @@
+---
+layout: default
+---
+{% assign words = content | strip_html | number_of_words %}
+{% assign read_time = words | divided_by: 200 | at_least: 1 %}
+
+<article class="wrap prose">
+  <header class="article-header">
+    {% if page.category %}<p class="kicker">{{ page.category }}</p>{% endif %}
+    <h1>{{ page.title }}</h1>
+    <p class="article-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+      · {{ read_time }} min read
+      {% if page.updated %} · updated {{ page.updated | date: "%b %-d, %Y" }}{% endif %}
+    </p>
+  </header>
+
+  <div class="article-body">
+    {{ content }}
+  </div>
+
+  {% if page.faq %}
+  <section aria-labelledby="post-faq-heading">
+    <h2 id="post-faq-heading">Frequently asked questions</h2>
+    {% for item in page.faq %}
+    <details class="faq-item">
+      <summary>{{ item.q }}</summary>
+      <div class="faq-a"><p>{{ item.a }}</p></div>
+    </details>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <div class="callout">
+    Want the numbers for your own listing? Run them through the
+    <a href="{{ '/' | relative_url }}">free Etsy profit calculator</a> — takes about 30 seconds.
+  </div>
+
+  {% if page.tags %}
+  <div class="tag-row">
+    {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+  </div>
+  {% endif %}
+
+  <section class="related-box" aria-labelledby="related-heading">
+    <h2 id="related-heading">Keep reading</h2>
+    {% assign related = site.posts | where_exp: "p", "p.url != page.url" | sample: 3 %}
+    {% for p in related %}
+    <div class="post-index-item">
+      <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time>
+      <div>
+        <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+        <p>{{ p.excerpt | strip_html | truncatewords: 22 }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+</article>

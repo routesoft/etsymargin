@@ -1,0 +1,48 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>EtsyMargin</h4>
+        <p style="max-width: 34ch; color: var(--ink-soft); font-size: 0.92rem;">
+          A free calculator that shows Etsy sellers their real profit after every fee — built for
+          makers who want an honest number, not a spreadsheet.
+        </p>
+      </div>
+      <div>
+        <h4>Tool</h4>
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Profit calculator</a></li>
+          <li><a href="{{ '/#faq' | relative_url }}">Fee FAQ</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="{{ '/privacy-policy/' | relative_url }}">Privacy policy</a></li>
+          <li><a href="{{ '/terms/' | relative_url }}">Terms of use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-disclosure">
+      EtsyMargin is an independent tool and is not affiliated with, endorsed by, or sponsored by
+      Etsy, Inc. "Etsy" is a trademark of Etsy, Inc. Fee rates are provided for estimation purposes
+      only — always confirm current rates on
+      <a href="https://www.etsy.com/legal/fees" rel="nofollow noopener" target="_blank">Etsy's official fee page</a>
+      before making pricing decisions.
+    </p>
+
+    <div class="footer-bottom">
+      <span>© {{ site.time | date: "%Y" }} EtsyMargin. All rights reserved.</span>
+      <span><a href="{{ '/feed.xml' | relative_url }}">RSS</a></span>
+    </div>
+  </div>
+</footer>
